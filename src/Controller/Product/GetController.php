@@ -18,7 +18,6 @@ class GetController extends AbstractController
      */
     public function getProducts(ManagerRegistry $doctrine): Response
     {
-
         $products = $doctrine->getRepository(Product::class)->findAll();
 
         return $this->render('products.html.twig', [
