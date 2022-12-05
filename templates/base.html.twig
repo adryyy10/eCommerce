@@ -7,6 +7,7 @@
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
+            {{ encore_entry_link_tags('header') }}
         {% endblock %}
 
         {% block javascripts %}
@@ -14,6 +15,21 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+            <header class="no-nav-header">
+                <nav class="nav">
+                    <div class="container-fluid">
+                        <a href="/" class="expressvpn-logo" title="eCommerce"></a>
+                        <div class="dd">
+                            {% if app.user is defined and app.user is not null %}
+                                {{app.user.username}}
+                            {% else %}
+                                Not logged
+                            {% endif %}
+                        </div>
+                    </div>
+                </nav>
+            </header>
+        {% endblock %}
     </body>
 </html>

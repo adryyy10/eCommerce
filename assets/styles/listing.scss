@@ -1,8 +1,9 @@
-$max-width: 1200px;
+$max-width: 75rem;
 
 .container {
     max-width: $max-width;
     margin: auto;
+    padding: 8rem 0rem;
 
     .listing {
         display: flex;
