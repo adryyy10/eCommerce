@@ -1,7 +1,25 @@
+{% extends 'base.html.twig' %}
 
-<h1>Products</h1>
-<ul>
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('listing') }}
+{% endblock %}
+
+{% block title %}Products{% endblock %}
+
+{% block body %}
+
+<div class="container">
+  <div class="listing">
     {% for product in products %}
-        <li>{{product.id}}: {{ product.name }}</li>
+        <div class="item">
+            <div class="item-content">
+                <h3>{{ product.name }}</h3>
+                <p>{{ product.description }}</p>
+            </div>
+        </div>
     {% endfor %}
-</ul>
+  </div>
+</div>
+
+{% endblock %}
