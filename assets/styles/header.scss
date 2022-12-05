@@ -8,9 +8,19 @@ header {
     justify-content: flex-end;
 
     .dd {
-        flex-direction: row;
-        align-content: flex-end;
-        width: fit-content;
         margin-right: 2rem;
+
+        a {
+            border-radius: .3rem;
+            border: 1px solid #0f866c;
+            background-color: #a9ecdd;
+            padding: .5rem;
+            text-decoration: none;
+
+            &:hover {
+                background-color: #6abca9;
+                color: white;
+            }
+        }
     }
 }

@@ -24,7 +24,7 @@
                             {% if app.user is defined and app.user is not null %}
                                 {{app.user.username}}
                             {% else %}
-                                Not logged
+                                <a href="/login">Login</a>
                             {% endif %}
                         </div>
                     </div>
