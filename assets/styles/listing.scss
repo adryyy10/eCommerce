@@ -3,4 +3,35 @@ $max-width: 1200px;
 .container {
     max-width: $max-width;
     margin: auto;
+
+    .listing {
+        display: flex;
+        flex-wrap: wrap;
+
+        .item {
+            width: 25%;
+            padding: 0rem 1rem;
+
+            h3 {
+                text-align: center;
+            }
+
+            p {
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                line-height: 1.25rem;
+                min-height: 5rem;
+            }
+
+            .price {
+                text-align: center;
+
+                label {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
 }
