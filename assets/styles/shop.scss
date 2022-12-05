@@ -8,6 +8,7 @@ $max-width: 75rem;
     .listing {
         display: flex;
         flex-wrap: wrap;
+        margin-bottom: 2rem;
 
         .item {
             width: 25%;

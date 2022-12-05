@@ -1,0 +1,47 @@
+$max-width: 75rem;
+
+.container {
+    max-width: $max-width;
+    margin: auto;
+    padding: 8rem 0rem;
+
+    .listing {
+        margin-bottom: 1.5rem;
+
+        .listing-table {
+            border: 1px solid black;
+            border-radius: .3rem;
+            border-collapse: collapse;
+    
+            tr {
+                border: solid;
+                border-width: 1px 0;
+            }
+    
+            th {
+                padding: 1rem;
+            }
+    
+            td {
+                padding: 1rem;
+            }
+        }
+    }
+
+    .action-buttons {
+        border: 1px solid blue;
+        background-color: #008CBA;
+        width: fit-content;
+        border-radius: .3rem;
+        padding: .5rem 1rem;
+
+        &:hover {
+            background-color: #016e92;
+            cursor: pointer;
+            
+            a {
+                color: rgb(215, 215, 215);
+            }
+        }
+    }
+}

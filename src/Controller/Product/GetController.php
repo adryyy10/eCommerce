@@ -20,7 +20,7 @@ class GetController extends AbstractController
     {
         $products = $doctrine->getRepository(Product::class)->findAll();
 
-        return $this->render('products.html.twig', [
+        return $this->render('shop/products.html.twig', [
             'products' => $products
         ]);
 

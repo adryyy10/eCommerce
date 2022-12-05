@@ -29,7 +29,7 @@ class AdminController extends AbstractController
 
         $products = $doctrine->getRepository(Product::class)->findAll();
 
-        return $this->render('products.html.twig', [
+        return $this->render('backOffice/products.html.twig', [
             'products' => $products
         ]);
 
