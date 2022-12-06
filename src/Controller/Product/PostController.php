@@ -4,7 +4,6 @@ namespace App\Controller\Product;
 
 use App\Entity\Product;
 use App\Interfaces\Product\ProductRepositoryInterface;
-use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Request;

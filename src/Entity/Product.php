@@ -98,6 +98,24 @@ class Product
         return $product;
     }
 
+    public static function update(
+        Product $product, 
+        string $name,
+        string $description,
+        float $price
+    ): self {
+
+        /** Validate all params are correct according with our business logic */
+        $product->validateBusinessLogic($name, $description, $price);
+
+        /** Set the internal values of the Product only inside of it, not in other files, trying to follow a more DDD approach */
+        $product->setName($name);
+        $product->setDescription($description);
+        $product->setPrice($price);
+
+        return $product;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
