@@ -2,7 +2,7 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    {{ encore_entry_link_tags('backOffice') }}
+    {{ encore_entry_link_tags('back-office') }}
 {% endblock %}
 
 {% block title %}Products{% endblock %}
@@ -27,7 +27,7 @@
         </table>
     </div>
     <div class="action-buttons">
-        <a class="add-button">Add product</a>
+        <a href="/productForm" class="add-button">Add product</a>
     </div>
 </div>
 

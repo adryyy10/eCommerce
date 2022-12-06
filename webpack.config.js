@@ -22,7 +22,8 @@ Encore
      */
     .addEntry('app', './assets/app.js')
     .addStyleEntry('shop', '/assets/styles/shop.scss')
-    .addStyleEntry('backOffice', '/assets/styles/backOffice.scss')
+    .addStyleEntry('back-office', '/assets/styles/back-office.scss')
+    .addStyleEntry('new-form', '/assets/styles/new-form.scss')
     .addStyleEntry('header', '/assets/styles/header.scss')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)

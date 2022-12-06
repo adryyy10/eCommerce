@@ -1,0 +1,59 @@
+$max-width: 75rem;
+
+.container {
+    max-width: $max-width;
+    margin: auto;
+    padding: 8rem 0rem;
+
+    .box-content {
+        margin: auto;
+        width: 37.5rem;
+        border: 1px solid rgb(0, 187, 255);
+        border-radius: .6rem;
+        padding: 2rem 3rem;
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .user-details {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .input-box {
+                margin-bottom: 1rem;
+
+                input {
+                    min-height: 1.7rem;
+                    border-radius: .2rem;
+                    padding: 0 .5rem;
+                }
+
+                textarea {
+                    min-width: 20rem;
+                    overflow: auto;
+                    padding: .5rem;
+                }
+            }
+        }
+
+        .submit-button input {
+            border: 1px solid blue;
+            background-color: #a0d1e2;
+            width: fit-content;
+            border-radius: .3rem;
+            padding: .5rem 1rem;
+            box-shadow: 2px 2px grey;
+    
+            &:hover {
+                background-color: #60acc5;
+                cursor: pointer;
+                
+                a {
+                    color: rgb(215, 215, 215);
+                }
+            }
+        }
+    }
+}
