@@ -3,6 +3,7 @@
 namespace App\Controller\BackOffice;
 
 use App\Entity\Product;
+use App\Interfaces\Product\ProductRepositoryInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
@@ -15,9 +16,11 @@ class AdminController extends AbstractController
     /**
      * @route("/admin", methods={"GET"}, name="app_ecommerce_get_listing_admin")
      * 
+     * @param ProductRepositoryInterface $productRepository
+     * 
      * @return Response
      */
-    public function listing(ManagerRegistry $doctrine): Response
+    public function listing(ProductRepositoryInterface $productRepository): Response
     {
         /** If we are not ROLE_SUPER_ADMIN, we redirect to shopping products */
         try {
@@ -26,7 +29,8 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('app_ecommerce_get_products');
         }
 
-        $products = $doctrine->getRepository(Product::class)->findAll();
+        /** Obtain all products with ProductRepositoryInterface throught DIP */
+        $products = $productRepository->findAll();
 
         return $this->render('backOffice/products.html.twig', [
             'products' => $products
