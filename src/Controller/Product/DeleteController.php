@@ -11,7 +11,7 @@ class DeleteController extends AbstractController
 {
 
     /**
-     * @Route("/removeProduct", Methods={"DELETE"}, name="app_back_office_remove_product")
+     * @Route("/removeProduct", methods={"DELETE"}, name="app_back_office_remove_product")
      */
     public function delete(int $id, ProductRepositoryInterface $productRepository)
     {

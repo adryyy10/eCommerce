@@ -12,6 +12,13 @@ $max-width: 75rem;
             border: 1px solid black;
             border-radius: .3rem;
             border-collapse: collapse;
+
+            .item-row {
+                &:hover {
+                    background-color: rgb(129, 128, 128);
+                    cursor: pointer;
+                }
+            }
     
             tr {
                 border: solid;
