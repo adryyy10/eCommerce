@@ -4,7 +4,6 @@ namespace App\Controller\BackOffice;
 
 use App\Entity\Product;
 use Doctrine\Persistence\ManagerRegistry;
-use LogicException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Response;
