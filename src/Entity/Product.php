@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\ProductRepository;
 use Doctrine\Common\Cache\Psr6\InvalidArgument;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use InvalidArgumentException;
 
@@ -34,6 +36,11 @@ class Product
      */
     private $price;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Basket::class, mappedBy="products")
+     */
+    private $baskets;
+
     public function __construct(
         string $name, 
         string $description, 
@@ -42,6 +49,7 @@ class Product
         $this->name         = $name;
         $this->description  = $description;
         $this->price        = $price;
+        $this->baskets = new ArrayCollection();
     }
 
     /**
@@ -153,6 +161,33 @@ class Product
     private function setPrice(float $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Basket>
+     */
+    public function getBaskets(): Collection
+    {
+        return $this->baskets;
+    }
+
+    public function addBasket(Basket $basket): self
+    {
+        if (!$this->baskets->contains($basket)) {
+            $this->baskets[] = $basket;
+            $basket->addProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBasket(Basket $basket): self
+    {
+        if ($this->baskets->removeElement($basket)) {
+            $basket->removeProduct($this);
+        }
 
         return $this;
     }
