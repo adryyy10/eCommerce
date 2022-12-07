@@ -24,7 +24,7 @@
             </div>
         {% endfor %}
         <div class="total">
-            Subtotal ({{basket.products|length}}) item{% if (basket.products|length > 1)%}s{% endif %} : <label>120 £</label>
+            Subtotal ({{basket.products|length}}) item{{ (basket.products|length > 1) ? 's' : '' }} : <label>{{basket.amount}} £</label>
         </div>
     </div>
 </div>

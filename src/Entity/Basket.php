@@ -29,6 +29,11 @@ class Basket
      */
     private $userId;
 
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $amount;
+
     public function __construct()
     {
         $this->products = new ArrayCollection();
@@ -71,6 +76,18 @@ class Basket
     public function setUserId(int $userId): self
     {
         $this->userId = $userId;
+
+        return $this;
+    }
+
+    public function getAmount(): ?float
+    {
+        return $this->amount;
+    }
+
+    public function setAmount(float $amount): self
+    {
+        $this->amount = $amount;
 
         return $this;
     }

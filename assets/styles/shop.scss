@@ -108,10 +108,17 @@ $max-width: 75rem;
 
         .item {
             border-bottom: 1px solid grey;
+
+            .item-content {
+
+                h3 {
+                    margin-top: 0;
+                }
+            }
         }
 
         .item-content {
-            padding: 1rem 0;
+            padding: 1.5rem 0;
         }
 
         label {
