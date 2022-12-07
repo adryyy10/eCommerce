@@ -22,7 +22,7 @@
                         <a href="/" class="expressvpn-logo" title="eCommerce"></a>
                         <div class="dd">
                             {% if app.user is defined and app.user is not null %}
-                                {{app.user.username}}
+                                Logged as: {{app.user.username}}
                             {% else %}
                                 <a href="/login">Login</a>
                             {% endif %}
