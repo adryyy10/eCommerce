@@ -2,9 +2,7 @@
 
 namespace App\Controller\BackOffice;
 
-use App\Entity\Product;
 use App\Interfaces\Product\ProductRepositoryInterface;
-use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +12,7 @@ class AdminController extends AbstractController
 {
 
     /**
-     * @route("/admin", methods={"GET"}, name="app_ecommerce_get_listing_admin")
+     * @Route("/admin", methods={"GET"}, name="app_ecommerce_get_listing_admin")
      * 
      * @param ProductRepositoryInterface $productRepository
      * 

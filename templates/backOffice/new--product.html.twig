@@ -16,7 +16,7 @@
             class="add-product-form" 
             method="{{ (product is defined and product is not null) ? 'PUT' : 'POST' }}" 
             action="{{ (product is defined and product is not null) ? '/updateProduct' : '/addProduct' }}"
-        >
+        >   
             <input type="hidden" id="productId" name="productId" value="{{ (product is defined and product is not null) ? product.id : '' }}" />
 
             <div class="user-details">
@@ -34,8 +34,15 @@
                     </div>
                 </div>
             </div>
-            <div class="submit-button">
-                <input type="submit" value="Submit">
+            <div class="buttons">
+                <div class="button submit-button">
+                    <input type="submit" value="Submit">
+                </div>
+                {% if product is defined and product is not null %}
+                    <div class="button remove-button" id="remove-button" data-product-id="{{product.id}}">
+                        Delete
+                    </div>
+                {% endif %}
             </div>
         </form>
     </div>

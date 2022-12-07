@@ -42,7 +42,6 @@ class UpdateController extends AbstractController
 
             /** Update product */
             $product = Product::update($product, $title, $description, $price);
-
             $productRepository->flush();
 
             /** Return to admin */
