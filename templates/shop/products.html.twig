@@ -28,6 +28,11 @@
             </div>
         {% endfor %}
     </div>
+    {% if basket is defined and basket is not null %}
+        <a href="/basket/{{basket.id}}" class="go-to-basket-button">
+            Go to my basket
+        </a>
+    {% endif %}
 </div>
 
 {% endblock %}

@@ -15,6 +15,10 @@ $max-width: 75rem;
             box-shadow: 2px 2px lightsteelblue;
 
             .item-row {
+
+                .price-row {
+                    width: 3.75rem;
+                }
                 &:hover {
                     background-color: lightsteelblue;
                     cursor: pointer;
@@ -37,8 +41,8 @@ $max-width: 75rem;
     }
 
     .action-buttons {
-        border: 1px solid blue;
-        background-color: #008CBA;
+        border: 1px solid #8181ff;
+        background-color: #a0d1e2;
         width: fit-content;
         border-radius: .3rem;
         padding: .5rem 1rem;
@@ -48,7 +52,7 @@ $max-width: 75rem;
         }
 
         &:hover {
-            background-color: #016e92;
+            background-color:  #60acc5;
             cursor: pointer;
             
             a {

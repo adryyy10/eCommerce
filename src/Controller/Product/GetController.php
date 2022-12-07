@@ -2,6 +2,7 @@
 
 namespace App\Controller\Product;
 
+use App\Interfaces\Basket\BasketRepositoryInterface;
 use App\Interfaces\Product\ProductRepositoryInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,13 +18,19 @@ class GetController extends AbstractController
      * 
      * @return Response
      */
-    public function getProducts(ProductRepositoryInterface $productRepository): Response
+    public function getProducts(ProductRepositoryInterface $productRepository, BasketRepositoryInterface $basketRepository): Response
     {
         /** Obtain all products with ProductRepositoryInterface throught DIP */
         $products = $productRepository->findAll();
 
+        /** Obtain basket (if we are logged and have it one) */
+        if (!empty($this->getUser())) {
+            $basket = $basketRepository->findOneBy(["userId" => $this->getUser()->getId()]);
+        }
+
         return $this->render('shop/products.html.twig', [
-            'products' => $products
+            'products' => $products,
+            'basket'   => $basket
         ]);
 
     }

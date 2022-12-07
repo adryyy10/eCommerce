@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('shop') }}
+{% endblock %}
+
+{% block title %}Basket{% endblock %}
+
+{% block body %}
+{{ parent() }}
+<div class="container">
+    <div class="basket">
+        <div class="item-content">
+            <h1>{{ basket.id }}</h1>
+            <p>{{ basket.userId }}</p>
+        </div>
+    </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -11,13 +11,16 @@ class GetController extends AbstractController
 {
 
     /**
-     * @Route("/basket", methods={"GET"}, name="app_shop_get_basket")
+     * @Route("/basket/{id}", methods={"GET"}, name="app_shop_get_basket")
      * 
+     * @param int $id
+     * @param BasketRepositoryInterface $basketRepository
+     * 
+     * @return Response
      */
-    public function getBasket(int $userId, BasketRepositoryInterface $basketRepository): Response
+    public function getBasket(int $id, BasketRepositoryInterface $basketRepository): Response
     {
-
-        $basket = $basketRepository->findOneBy(["userId" => $userId]);
+        $basket = $basketRepository->find($id);
 
         return $this->render('shop/basket.html.twig', [
             "basket" => $basket
