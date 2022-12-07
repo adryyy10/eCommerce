@@ -21,6 +21,12 @@ $max-width: 75rem;
                 box-shadow: 1px 1px lightsteelblue;
                 padding: 2rem;
                 margin: 1rem .5rem;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: rgb(175, 234, 234);
+                    box-shadow: 2.5px 2.5px lightsteelblue;
+                }
 
                 h3 {
                     text-align: center;
@@ -43,6 +49,32 @@ $max-width: 75rem;
                         font-weight: 600;
                     }
                 }   
+            }
+        }
+    }
+
+    .item-profile {
+        border: 1px solid lightsteelblue;
+        border-radius: .6rem;
+        box-shadow: 1px 1px lightsteelblue;
+        padding: 3rem;
+        width: 80%;
+        margin: auto;
+
+        h1 {
+            margin-top: 0;
+        }
+
+        .add-to-basket-button {
+            width: fit-content;
+            padding: .5rem 1rem;
+            border: 1px solid rgb(102, 168, 102);
+            border-radius: .6rem;
+            background-color: lightgreen;
+
+            &:hover {
+                cursor: pointer;
+                background-color: rgb(123, 203, 123);
             }
         }
     }

@@ -39,9 +39,7 @@
                     <input type="submit" value="Submit">
                 </div>
                 {% if product is defined and product is not null %}
-                    <div class="button remove-button" id="remove-button" data-product-id="{{product.id}}">
-                        Delete
-                    </div>
+                    <div class="button remove-button" id="remove-button" data-product-id="{{product.id}}">Delete</div>
                 {% endif %}
             </div>
         </form>

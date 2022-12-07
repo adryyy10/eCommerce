@@ -12,10 +12,11 @@ $max-width: 75rem;
             border: 1px solid black;
             border-radius: .3rem;
             border-collapse: collapse;
+            box-shadow: 2px 2px lightsteelblue;
 
             .item-row {
                 &:hover {
-                    background-color: rgb(129, 128, 128);
+                    background-color: lightsteelblue;
                     cursor: pointer;
                 }
             }
@@ -41,6 +42,10 @@ $max-width: 75rem;
         width: fit-content;
         border-radius: .3rem;
         padding: .5rem 1rem;
+
+        a {
+            text-decoration: none;
+        }
 
         &:hover {
             background-color: #016e92;

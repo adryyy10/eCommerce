@@ -28,4 +28,22 @@ class GetController extends AbstractController
 
     }
 
+    /**
+     * @route("/product/{id}", methods={"GET"}, name="app_ecommerce_get_product")
+     * 
+     * @param ProductRepositoryInterface $productRepository
+     * 
+     * @return Response
+     */
+    public function getProduct(int $id, ProductRepositoryInterface $productRepository): Response
+    {
+        /** Obtain all products with ProductRepositoryInterface throught DIP */
+        $product = $productRepository->find($id);
+
+        return $this->render('shop/product.html.twig', [
+            'product' => $product
+        ]);
+
+    }
+
 }
