@@ -10,12 +10,22 @@
 {% block body %}
 {{ parent() }}
 <div class="container">
-    <div class="basket">
-        <div class="item-content">
-            <h1>{{ basket.id }}</h1>
-            <p>{{ basket.userId }}</p>
+    <div class="shopping-basket">
+        <h2>Shopping basket</h2>
+        {% for product in basket.products %}
+            <div class="item">
+                <div class="item-content" data-product-id="{{product.id}}">
+                    <h3>{{ product.name }}</h3>
+                    <p>{{ product.description }}</p>
+                    <div class="price">
+                        <label>{{ product.price }} £</label>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="total">
+            Subtotal ({{basket.products|length}}) item{% if (basket.products|length > 1)%}s{% endif %} : <label>120 £</label>
         </div>
-    </div>
     </div>
 </div>
 
