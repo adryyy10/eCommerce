@@ -15,11 +15,10 @@ class UpdateController extends AbstractController
 
     /**
      * 
-     * @Route("/updateProduct", methods={"PUT"}, name="app_back_office_update_product")
+     * @Route("/updateProduct", name="app_back_office_update_product")
      * 
      */
-    public function update(
-        int $id, 
+    public function updatePRoduct(
         ProductRepositoryInterface $productRepository,
         Request $request
     ) {
@@ -42,7 +41,9 @@ class UpdateController extends AbstractController
             }
 
             /** Update product */
-            Product::update($product, $title, $description, $price);
+            $product = Product::update($product, $title, $description, $price);
+
+            $productRepository->flush();
 
             /** Return to admin */
             return $this->redirectToRoute("app_ecommerce_get_listing_admin");

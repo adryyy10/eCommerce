@@ -5,6 +5,11 @@
     {{ encore_entry_link_tags('back-office') }}
 {% endblock %}
 
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('product') }}
+{% endblock %}
+
 {% block title %}Products{% endblock %}
 
 {% block body %}
@@ -18,7 +23,7 @@
                 <th>Price</th>
             </tr>
             {% for product in products %}
-                <tr class="item-row">
+                <tr class="item-row" data-product-id="{{product.id}}">
                     <td>{{product.name}}</td>
                     <td>{{product.description}}</td>
                     <td>{{product.price}}</td>

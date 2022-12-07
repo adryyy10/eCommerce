@@ -12,5 +12,7 @@ interface ProductRepositoryInterface
 
     public function findAll();
 
+    public function flush(): void;
+
     public function remove(Product $entity, bool $flush = false): void;
 }

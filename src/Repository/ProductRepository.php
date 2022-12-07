@@ -40,6 +40,11 @@ class ProductRepository extends ServiceEntityRepository implements ProductReposi
         }
     }
 
+    public function flush(): void
+    {
+        $this->getEntityManager()->flush();
+    }
+
 //    /**
 //     * @return Product[] Returns an array of Product objects
 //     */

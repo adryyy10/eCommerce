@@ -22,15 +22,15 @@
             <div class="user-details">
                 <div class="column">
                     <div class="input-box">
-                        <input type="text" id="productTitle" name="productTitle" placeholder="Title of the product" value="{{ (product is defined) ? product.name : '' }}">
+                        <input type="text" id="productTitle" name="productTitle" placeholder="Title of the product" value="{{ (product is defined and product is not null) ? product.name : '' }}">
                     </div>
                     <div class="input-box">
-                        <input type="text" name="productPrice" placeholder="Price of the product (£)" value="{{ (product is defined) ? product.price : '' }}">
+                        <input type="text" name="productPrice" placeholder="Price of the product (£)" value="{{ (product is defined and product is not null) ? product.price : '' }}">
                     </div>
                 </div>
                 <div class="column">
                     <div class="input-box">
-                        <textarea name="productDescription" rows="5" placeholder="Description of the product" value="{{ (product is defined) ? product.description : '' }}"></textarea>
+                        <textarea name="productDescription" rows="5" placeholder="Description of the product">{{ (product is defined and product is not null) ? product.description : '' }}</textarea>
                     </div>
                 </div>
             </div>
