@@ -30,7 +30,7 @@ class GetController extends AbstractController
 
         return $this->render('shop/products.html.twig', [
             'products' => $products,
-            'basket'   => $basket
+            'basket'   => !empty($basket) ? $basket : null
         ]);
 
     }

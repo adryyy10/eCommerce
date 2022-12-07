@@ -78,4 +78,21 @@ $max-width: 75rem;
             }
         }
     }
+
+    .go-to-basket-button {
+        width: fit-content;
+        padding: .5rem 1rem;
+        border: 1px solid rgb(102, 168, 102);
+        border-radius: .6rem;
+        background-color: lightgreen;
+        text-decoration: none;
+        box-shadow: 1px 1px lightsteelblue;
+        margin-left: .5rem;
+
+        &:hover {
+            cursor: pointer;
+            background-color: rgb(123, 203, 123);
+            box-shadow: 2px 2px lightsteelblue;
+        }
+    }
 }
