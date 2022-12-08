@@ -22,7 +22,7 @@ class GetController extends AbstractController
     {
         $basket = $basketRepository->find($id);
 
-        return $this->render('shop/basket.html.twig', [
+        return $this->render('shop/basket-profile.html.twig', [
             "basket" => $basket
         ]);
     }

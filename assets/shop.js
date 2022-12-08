@@ -9,5 +9,3 @@ var profileProduct = function(){
 for (var i = 0; i < products.length; i++) {
     products[i].addEventListener('click', profileProduct, false);
 }
-
-console.log("HEHE");

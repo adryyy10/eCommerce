@@ -1,0 +1,22 @@
+<div class="side-template">
+    {% if basket is defined and basket is not null %}
+        <h2>Your basket: £{{basket.amount}}</h2>
+        <div class="listing">
+            {% for product in basket.products %}
+                <div class="item">
+                    <div class="item-content" data-product-id="{{product.id}}">
+                        <h3>{{ product.name }}</h3>
+                        <div class="price">
+                            <label>£{{ product.price }}</label>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <a href="/basket/{{basket.id}}" class="go-to-basket-button">
+            Go to my basket
+        </a>
+    {% else %}
+        You have no basket yet
+    {% endif %}
+</div>

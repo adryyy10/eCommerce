@@ -34,8 +34,9 @@ class Basket
      */
     private $amount;
 
-    public function __construct()
+    public function __construct(int $userId)
     {
+        $this->userId   = $userId;
         $this->products = new ArrayCollection();
     }
 

@@ -5,32 +5,30 @@
     {{ encore_entry_link_tags('shop') }}
 {% endblock %}
 
-{% block javascripts %}
-    {{ parent() }}
-    {{ encore_entry_script_tags('shopJS') }}
-{% endblock %}
-
-{% block title %}Products{% endblock %}
+{% block title %}Basket{% endblock %}
 
 {% block body %}
 {{ parent() }}
 <div class="container">
     <div class="main-template">
-        <div class="listing">
-            {% for product in products %}
+        <div class="shopping-basket">
+            <h2>Shopping basket</h2>
+            {% for product in basket.products %}
                 <div class="item">
                     <div class="item-content" data-product-id="{{product.id}}">
                         <h3>{{ product.name }}</h3>
                         <p>{{ product.description }}</p>
                         <div class="price">
-                            <label>£{{ product.price }}</label>
+                            <label>{{ product.price }} £</label>
                         </div>
                     </div>
                 </div>
             {% endfor %}
+            <div class="total">
+                Subtotal ({{basket.products|length}}) item{{ (basket.products|length > 1) ? 's' : '' }} : <label>{{basket.amount}} £</label>
+            </div>
         </div>
     </div>
-    {% include 'shop/side-template.html.twig' with {'basket': basket} only %}
 </div>
 
 {% endblock %}

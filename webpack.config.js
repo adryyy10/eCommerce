@@ -23,6 +23,7 @@ Encore
     .addEntry('app', './assets/app.js')
     .addEntry('product', './assets/product.js')
     .addEntry('shopJS', './assets/shop.js')
+    .addEntry('basket', './assets/basket.js')
     .addStyleEntry('shop', '/assets/styles/shop.scss')
     .addStyleEntry('back-office', '/assets/styles/back-office.scss')
     .addStyleEntry('new-form', '/assets/styles/new-form.scss')

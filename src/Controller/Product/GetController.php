@@ -42,13 +42,22 @@ class GetController extends AbstractController
      * 
      * @return Response
      */
-    public function getProduct(int $id, ProductRepositoryInterface $productRepository): Response
+    public function getProduct(
+        int $id, 
+        ProductRepositoryInterface $productRepository,
+        BasketRepositoryInterface $basketRepository): Response
     {
         /** Obtain all products with ProductRepositoryInterface throught DIP */
         $product = $productRepository->find($id);
 
+        /** Obtain basket (if we are logged and have it one) */
+        if (!empty($this->getUser())) {
+            $basket = $basketRepository->findOneBy(["userId" => $this->getUser()->getId()]);
+        }
+
         return $this->render('shop/product.html.twig', [
-            'product' => $product
+            'product' => $product,
+            'basket'   => !empty($basket) ? $basket : null
         ]);
 
     }
