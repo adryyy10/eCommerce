@@ -53,7 +53,6 @@ $max-width: 75rem;
                 input {
                     background-color: transparent;
                     border: transparent;
-                    padding: .5rem 1rem;
 
                     &:hover {
                         cursor: pointer;
@@ -64,6 +63,7 @@ $max-width: 75rem;
             .submit-button {
                 border: 1px solid #8181ff;
                 background-color: #a0d1e2;
+                padding: .5rem;
         
                 &:hover {
                     background-color: #60acc5;

@@ -40,7 +40,7 @@ class PostController extends AbstractController
         $productRepository->add($product, true);
 
         /** Return to admin */
-        return $this->redirectToRoute("app_ecommerce_get_listing_admin");
+        return $this->redirectToRoute("app_ecommerce_get_product_listing_admin");
     }
 
 }

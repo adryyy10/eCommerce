@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\BackOffice;
+namespace App\Controller\BackOffice\Product;
 
 use App\Interfaces\Product\ProductRepositoryInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,7 +12,7 @@ class AdminController extends AbstractController
 {
 
     /**
-     * @Route("/admin", methods={"GET"}, name="app_ecommerce_get_listing_admin")
+     * @Route("/admin/products", methods={"GET"}, name="app_ecommerce_get_product_listing_admin")
      * 
      * @param ProductRepositoryInterface $productRepository
      * 

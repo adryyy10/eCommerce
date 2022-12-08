@@ -8,7 +8,7 @@
 {% block title %}New product{% endblock %}
 
 {% block body %}
-
+{{parent() }}
 <div class="container">
     <div class="box-content">
         <h2 class="title">Add new product</h2>
@@ -36,7 +36,7 @@
             </div>
             <div class="buttons">
                 <div class="button submit-button">
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="{{(product is defined and product is not null) ? 'Update' : 'Submit'}}">
                 </div>
                 {% if product is defined and product is not null %}
                     <div class="button remove-button" id="remove-button" data-product-id="{{product.id}}">Delete</div>
