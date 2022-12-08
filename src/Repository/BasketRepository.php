@@ -40,6 +40,11 @@ class BasketRepository extends ServiceEntityRepository implements BasketReposito
         }
     }
 
+    public function flush(): void
+    {
+        $this->getEntityManager()->flush();
+    }
+
 //    /**
 //     * @return Basket[] Returns an array of Basket objects
 //     */

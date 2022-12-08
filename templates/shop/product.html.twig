@@ -23,7 +23,7 @@
                 <div class="price">
                     <h3>{{ product.price }} £</h3>
                 </div>
-                {% if app.user is defined and app.user.username is not null %}
+                {% if app.user is defined and app.user is not null %}
                     <input type="submit" value="Add to basket" class="add-to-basket-button" id="add-to-basket" data-product-id="{{product.id}}">
                 {% endif %}
             </div>

@@ -4,6 +4,7 @@ namespace App\Controller\Product;
 
 use App\Interfaces\Basket\BasketRepositoryInterface;
 use App\Interfaces\Product\ProductRepositoryInterface;
+use Doctrine\ORM\EntityNotFoundException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -49,6 +50,11 @@ class GetController extends AbstractController
     {
         /** Obtain all products with ProductRepositoryInterface throught DIP */
         $product = $productRepository->find($id);
+
+        /** If we don't find the product, throw EntityNotFoundException */
+        if (empty($product)) {
+            throw new EntityNotFoundException("Product not found");
+        }
 
         /** Obtain basket (if we are logged and have it one) */
         if (!empty($this->getUser())) {

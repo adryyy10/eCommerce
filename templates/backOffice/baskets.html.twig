@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('back-office') }}
+{% endblock %}
+
+{% block title %}Baskets{% endblock %}
+
+{% block body %}
+{{ parent() }}
+<div class="container">
+    <div class="listing">
+        <table class="listing-table">
+            <tr class="listing-header">
+                <th>Id</th>
+                <th>Products</th>
+                <th>Amount</th>
+            </tr>
+            {% for basket in baskets %}
+                <tr class="item-row" data-basket-id="{{basket.id}}">
+                    <td>{{basket.id}}</td>
+                    <td>
+                        {% for product in basket.products %}
+                            <div class="item">
+                                <div class="item-content" data-product-id="{{product.id}}">
+                                    - {{product.name}}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </td>
+                    <td>£{{basket.amount}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+{% endblock %}
