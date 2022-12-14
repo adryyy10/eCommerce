@@ -2,40 +2,28 @@
 
 namespace App\Tests\Product;
 
-use App\Controller\Product\GetController;
-use App\Interfaces\Product\ProductRepositoryInterface;
-use PHPUnit\Framework\TestCase;
-use Symfony\Component\HttpFoundation\Response;
+use App\Repository\UserRepository;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class GetControllerTest extends TestCase
+class GetControllerTest extends WebTestCase
 {
-
-    public array $mocks;
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $this->initMocks();
-    }
-
-    public function initMocks()
-    {
-        $this->mocks[ProductRepositoryInterface::class] = $this->createMock(ProductRepositoryInterface::class);
-        $this->mocks[GetController::class]              = $this->createMock(GetController::class);
-        $this->mocks[Response::class]                   = $this->createMock(Response::class);
-    }
 
     public function testGetProducts()
     {
-        $this->mocks[ProductRepositoryInterface::class]
-            ->expects($this->once())
-            ->method('findAll')
-            ->willReturn([]);
+        $client = static::createClient();
+        $userRepository = static::getContainer()->get(UserRepository::class);
 
-        $response = $this->mocks[GetController::class]
-            ->expects($this->once())
-            ->method('getProducts')
-            ->willReturn($this->mocks[Response::class]);
+        // retrieve the test user
+        $testUser = $userRepository->findOneByEmail('afg@gmail.com');
+
+        // MAYBE IT WORKS WITH CREATE A MOCK
+
+        // simulate $testUser being logged in
+        $client->loginUser($testUser);
+
+        // test e.g. the profile page
+        $client->request('GET', '/profile');
+        $this->assertResponseIsSuccessful();
     }
 
 }

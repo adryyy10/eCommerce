@@ -12,6 +12,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class GetController extends AbstractController
 {
 
+    public ProductRepositoryInterface $productRepository;
+    public BasketRepositoryInterface $basketRepository;
+
+    public function __construct(
+        ProductRepositoryInterface $productRepository, 
+        BasketRepositoryInterface $basketRepository
+    ) {
+        $this->productRepository = $productRepository;
+        $this->basketRepository = $basketRepository;
+    }
+
     /**
      * @route("/products", methods={"GET"}, name="app_ecommerce_get_products")
      * 
@@ -19,14 +30,14 @@ class GetController extends AbstractController
      * 
      * @return Response
      */
-    public function getProducts(ProductRepositoryInterface $productRepository, BasketRepositoryInterface $basketRepository): Response
+    public function getProducts(): Response
     {
         /** Obtain all products with ProductRepositoryInterface throught DIP */
-        $products = $productRepository->findAll();
+        $products = $this->productRepository->findAll();
 
         /** Obtain basket (if we are logged and have it one) */
         if (!empty($this->getUser())) {
-            $basket = $basketRepository->findOneBy(["userId" => $this->getUser()->getId()]);
+            $basket = $this->basketRepository->findOneBy(["userId" => $this->getUser()->getId()]);
         }
 
         return $this->render('shop/products.html.twig', [
@@ -43,13 +54,10 @@ class GetController extends AbstractController
      * 
      * @return Response
      */
-    public function getProduct(
-        int $id, 
-        ProductRepositoryInterface $productRepository,
-        BasketRepositoryInterface $basketRepository): Response
+    public function getProduct(int $id): Response
     {
         /** Obtain all products with ProductRepositoryInterface throught DIP */
-        $product = $productRepository->find($id);
+        $product = $this->productRepository->find($id);
 
         /** If we don't find the product, throw EntityNotFoundException */
         if (empty($product)) {
@@ -58,7 +66,7 @@ class GetController extends AbstractController
 
         /** Obtain basket (if we are logged and have it one) */
         if (!empty($this->getUser())) {
-            $basket = $basketRepository->findOneBy(["userId" => $this->getUser()->getId()]);
+            $basket = $this->basketRepository->findOneBy(["userId" => $this->getUser()->getId()]);
         }
 
         return $this->render('shop/product.html.twig', [

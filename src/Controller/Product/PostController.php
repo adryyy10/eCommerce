@@ -12,22 +12,29 @@ use Symfony\Component\Routing\Annotation\Route;
 class PostController extends AbstractController
 {
 
+    public ProductRepositoryInterface $productRepository;
+
+    public function __construct(
+        ProductRepositoryInterface $productRepository
+    ) {
+        $this->productRepository = $productRepository;
+    }
+
     /**
      * @Route("/addProduct", methods={"POST"}, name="app_back_office_add_product")
      * 
      * @param Request $request
-     * @param ProductRepositoryInterface $productRepository
      * 
      */
-    public function add(Request $request, ProductRepositoryInterface $productRepository)
+    public function add(Request $request)
     {
 
         /** If we are not ROLE_SUPER_ADMIN, we redirect to shopping products */
-        try {
+        /*try {
             $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, 'User tried to access admin without having ROLE_SUPER_ADMIN');
         } catch (AccessDeniedException $e) {
             return $this->redirectToRoute('app_ecommerce_get_products');
-        }
+        }*/
 
         $title          = $request->get('productTitle');
         $description    = $request->get('productDescription');
@@ -37,7 +44,7 @@ class PostController extends AbstractController
         $product = Product::create($title, $description, $price);
 
         /** Persist + flush in DB */
-        $productRepository->add($product, true);
+        $this->productRepository->add($product, true);
 
         /** Return to admin */
         return $this->redirectToRoute("app_ecommerce_get_product_listing_admin");

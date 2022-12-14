@@ -14,7 +14,7 @@ class FormController extends AbstractController
      * @Route("/productForm/{id}", name="app_back_office_new_product_form")
      * 
      */
-    public function newProductForm(int $id = null, ProductRepositoryInterface $productRepository): Response
+    public function newProductForm($id = null, ProductRepositoryInterface $productRepository): Response
     {
 
         if (!empty($id)) {
